@@ -16,3 +16,7 @@ In order to use this chart you will need to have a data source that has two colu
 
 
 ![image](https://user-images.githubusercontent.com/47331711/109521323-7a9d6b80-7aad-11eb-9a91-92c12944ba5c.png)
+
+# Logo
+
+![scatter_logo](https://user-images.githubusercontent.com/47331711/111793394-85d20300-88c5-11eb-9382-2e78f8631729.png)
