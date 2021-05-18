@@ -8,16 +8,16 @@
   "privacyPolicyUrl": "https://url",
   "termsOfServiceUrl": "https://url",
   "packageUrl": "https://github.com/ilotam/scatterplot",
-  "devMode": "DEVMODE_BOOL",
+  "devMode": false,
   "components": [
     {
       "name": "Scatterplot",
       "description": "Scatterplot",
       "iconUrl": "https://user-images.githubusercontent.com/47331711/111793394-85d20300-88c5-11eb-9382-2e78f8631729.png",
       "resource": {
-        "js": "YOUR_GCS_BUCKET/index.js",
-        "config": "YOUR_GCS_BUCKET/index.json",
-        "css": "YOUR_GCS_BUCKET/index.css"
+        "js": "gs://smart_city_bucket/scatter/prod/index.js",
+        "config": "gs://smart_city_bucket/scatter/prod/index.json",
+        "css": "gs://smart_city_bucket/scatter/prod/index.css"
       }
     }
   ]

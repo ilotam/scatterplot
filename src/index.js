@@ -50,7 +50,7 @@ const drawViz = message => {
         return {
            
             GrLivArea: row["dimension"][0],   
-            SalePrice:  row["metric"][0]
+            SalePrice:  row["dimension"][1]
         }  
     });
     console.log(data);
