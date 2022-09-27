@@ -24,7 +24,7 @@ const styleVal = (message, styleId) => {
 const drawViz = message => {
   
     // set the dimensions and margins of the graph
-    var margin = {top: 10, right: 30, bottom: 30, left: 60},
+    let margin = {top: 10, right: 30, bottom: 30, left: 60},
     width = 460 - margin.left - margin.right,
     height = 450 - margin.top - margin.bottom;
 
@@ -34,28 +34,24 @@ const drawViz = message => {
         oldSvg.parentNode.removeChild(oldSvg);
       }
     // append the svg object to the body of the page
-    var svg = d3.select("body")
+    let svg = d3.select("body")
     .append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
     .append("g")
     .attr("transform",
         "translate(" + margin.left + "," + margin.top + ")");
-    
-    var tblList = message.tables.DEFAULT;
 
-    var data = tblList.map(row => {
-    
-                
+    let tblList = message.tables.DEFAULT;
+    let data = tblList.map(row => {
         return {
-           
             GrLivArea: row["dimension"][0],   
             SalePrice:  row["dimension"][1]
         }  
     });
-    console.log(data);
+
     // Add X axis
-    var x = d3.scaleLinear()
+    let x = d3.scaleLinear()
     .domain([0, 3000])
     .range([ 0, width ]);
     svg.append("g")
@@ -63,7 +59,7 @@ const drawViz = message => {
     .call(d3.axisBottom(x));
 
     // Add Y axis
-    var y = d3.scaleLinear()
+    let y = d3.scaleLinear()
     .domain([0, 400000])
     .range([ height, 0]);
     svg.append("g")
@@ -71,7 +67,7 @@ const drawViz = message => {
 
     // Add a tooltip div. Here I define the general feature of the tooltip: stuff that do not depend on the data point.
     // Its opacity is set to 0: we don't see it by default.
-    var tooltip = d3.select("body")
+    let tooltip = d3.select("body")
     .append("div")
     .style("opacity", 0)
     .attr("class", "tooltip")
@@ -83,13 +79,12 @@ const drawViz = message => {
 
     // A function that change this tooltip when the user hover a point.
     // Its opacity is set to 1: we can now see it. Plus it set the text and position of tooltip depending on the datapoint (d)
-    var mouseover = function(d) {
+    let mouseover = function(d) {
     tooltip
     .style("opacity", 1)
     }
 
-    var mousemove = function(d) {
-    //console.log(event.path[0].__data__.GrLivArea)
+    let mousemove = function(d) {
     tooltip
     .data(data)
     .html("The exact value of<br>the area is: " + event.path[0].__data__.GrLivArea)
@@ -98,7 +93,7 @@ const drawViz = message => {
     }
 
     // A function that change this tooltip when the leaves a point: just need to set opacity to 0 again
-    var mouseleave = function(d) {
+    let mouseleave = function(d) {
     tooltip
     .transition()
     .duration(200)
